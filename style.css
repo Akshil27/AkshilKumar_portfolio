@@ -1,11 +1,23 @@
 /* Root variables for colours and spacing */
+/*
+ * Theme variables
+ *
+ * These colours set the overall look and feel of the site. A more modern,
+ * professional palette has been chosen to improve clarity and cohesion. The
+ * primary colour anchors the navigation and footer, the secondary colour
+ * highlights headings and important elements, while the accent colour
+ * draws the eye to call‑to‑action buttons. A light background keeps text
+ * readable and provides ample contrast.
+ */
 :root {
-    --primary-color: #003366;
-    --secondary-color: #005da6;
-    --accent-color: #e8b006;
-    --background-light: #f7f9fc;
-    --text-dark: #333;
-    --text-light: #fff;
+    /* Updated palette inspired by Google's bright colours */
+    --primary-color: #4285f4;        /* Google blue for navigation and primary accents */
+    --secondary-color: #0f9d58;      /* Google green for headings and highlights */
+    --accent-color: #fbbc05;         /* Google yellow for call‑to‑action buttons */
+    --danger-color: #db4437;         /* Google red for emphasis (e.g., risk bars) */
+    --background-light: #ffffff;     /* clean white background for sections */
+    --text-dark: #202124;            /* dark grey for high contrast */
+    --text-light: #ffffff;           /* white for text on coloured backgrounds */
     --max-width: 1000px;
     --section-padding: 60px;
 }
@@ -22,7 +34,8 @@ body {
 .hero {
     position: relative;
     height: 80vh;
-    background-image: url('images/analytics_bg.png');
+    /* Updated hero background with an abstract supply‑chain image */
+    background-image: url('images/hero_background.png');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -37,7 +50,8 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    /* Semi‑transparent overlay for readability while allowing the background image to show through */
+    background-color: rgba(0, 0, 0, 0.3);
 }
 .hero-content {
     position: relative;
@@ -92,6 +106,12 @@ body {
     transition: color 0.3s ease;
 }
 .navbar a:hover {
+    color: var(--accent-color);
+}
+
+/* Active link highlighting for navigation */
+.navbar a.active {
+    border-bottom: 2px solid var(--accent-color);
     color: var(--accent-color);
 }
 
@@ -248,6 +268,20 @@ body {
     text-decoration: underline;
 }
 
+/* Leadership philosophy list styling */
+.leadership-list {
+    list-style: disc inside;
+    max-width: 800px;
+    margin: 20px auto 0;
+    padding-left: 0;
+}
+.leadership-list li {
+    margin-bottom: 10px;
+}
+.leadership-list strong {
+    color: var(--secondary-color);
+}
+
 /* Adjust canvases within Prosacco charts so they don't overflow vertically */
 .prosacco-chart canvas {
     flex: 1;
@@ -271,6 +305,59 @@ body {
 }
 .contact-list a:hover {
     text-decoration: underline;
+}
+
+/* Generic illustrative image styling used in sections such as Projects */
+.section-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    display: block;
+    margin: 0 auto 30px;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/*
+ * Introduction section
+ *
+ * This section introduces the portfolio owner with a succinct overview and
+ * displays a profile photograph. The flexbox layout adapts to various
+ * screen sizes, stacking on narrow screens and sitting side by side on
+ * wider displays. A circular crop and subtle shadow elevate the image.
+ */
+.intro-section {
+    background-color: var(--background-light);
+}
+.intro-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+}
+.intro-text {
+    flex: 1 1 300px;
+    min-width: 280px;
+}
+.intro-text h2 {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+.intro-photo {
+    flex: 1 1 260px;
+    min-width: 240px;
+    text-align: center;
+}
+.intro-photo img {
+    max-width: 240px;
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.intro-text .btn {
+    margin-top: 20px;
 }
 
 /* Footer */

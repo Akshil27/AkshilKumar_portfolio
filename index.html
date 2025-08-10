@@ -18,22 +18,50 @@
         <div class="hero-content">
             <h1>Akshil&nbsp;Kumar</h1>
             <p>Business &amp; Supply Chain Analyst</p>
-            <a href="#about" class="btn">Explore Portfolio</a>
+            <!-- Link anchors down to the introduction section -->
+            <a href="#intro" class="btn">Discover More</a>
         </div>
     </header>
 
     <!-- Navigation bar for section links -->
     <nav class="navbar">
         <ul>
+            <!-- Navigation is ordered to reflect the flow of the page: introduction, background, experience, skills, leadership, projects, dashboard, directive project and contact -->
+            <li><a href="#intro">Intro</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#skills">Skills</a></li>
+            <li><a href="#leadership">Leadership</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#dashboard">Dashboard</a></li>
             <li><a href="#prosacco">Prosacco Analysis</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
+
+    <!-- Introduction section with profile photo and resume link -->
+    <section id="intro" class="section intro-section">
+        <div class="intro-grid">
+            <div class="intro-text">
+                <h2>Introduction</h2>
+                <p>
+                    Hello! I’m Akshil Kumar, a recent M.S. graduate in Industrial Technology and
+                    Manufacturing who is deeply interested in business intelligence and supply chain
+                    analytics. Through my graduate studies and professional experience, I’ve honed my
+                    ability to transform operational data into actionable insights. I specialise in
+                    designing forecasting models, building interactive dashboards and identifying process
+                    bottlenecks across complex supply chains. My work has cut reporting time by
+                    80&nbsp;percent, prevented over $285K in forecast‑related losses and reduced financial risk by
+                    $250K per year. I’m passionate about using data storytelling to drive informed
+                    decisions and delight stakeholders.
+                </p>
+                <a href="data/AkshilKumar_Resume.pdf" download class="btn">Download Resume</a>
+            </div>
+            <div class="intro-photo">
+                <img src="images/profile.jpg" alt="Akshil Kumar portrait">
+            </div>
+        </div>
+    </section>
 
     <!-- About section summarising personal profile -->
     <section id="about" class="section">
@@ -137,9 +165,39 @@
         </div>
     </section>
 
+    <!-- Leadership philosophy section emphasising Amazon's principles -->
+    <section id="leadership" class="section">
+        <h2>Leadership Philosophy</h2>
+        <p>
+            Instead of merely repeating Amazon’s Leadership Principles, I’ve woven them into my own
+            professional philosophy. These guiding themes shape how I approach analytics projects,
+            collaborate with teammates and drive impact across the supply chain. Here’s how I bring
+            them to life in my work:
+        </p>
+        <ul class="leadership-list">
+            <li><strong>Customer Obsession:</strong> I always start with the needs of internal and
+                external customers when designing data solutions. My dashboards and models focus on
+                answering the right questions so that end users are delighted and empowered.</li>
+            <li><strong>Ownership:</strong> I take full responsibility for projects from data
+                modelling through implementation and follow‑up. When challenges arise, I lean in,
+                communicate transparently and proactively seek improvements rather than waiting for
+                direction.</li>
+            <li><strong>Invent &amp; Simplify:</strong> I look for creative ways to simplify complex
+                processes. Whether designing an automated report or a forecasting algorithm, I
+                challenge assumptions and build intuitive tools that make decision‑making easy for
+                stakeholders.</li>
+            <li><strong>Learn &amp; Be Curious:</strong> I continuously expand my skill set—be it
+                exploring new BI platforms, studying emerging supply chain trends or experimenting
+                with predictive models. This curiosity helps me stay ahead of the curve and bring
+                fresh perspectives to each problem.</li>
+        </ul>
+    </section>
+
     <!-- Projects section highlighting key accomplishments -->
     <section id="projects" class="section">
         <h2>Highlighted Projects</h2>
+        <!-- Illustrative image emphasising manufacturing analytics -->
+        <img src="images/manufacturing_analytics.png" alt="Manufacturing analytics illustration" class="section-image">
         <div class="project-item">
             <h3>Inventory Forecasting &amp; Bottleneck Detection</h3>
             <p>This project combined SQL and Power&nbsp;BI to create demand forecasting models and bottleneck detection algorithms for a manufacturing environment. By analysing historical demand, production throughput and order data, the models decreased stockouts by <strong>18%</strong>, increased order fulfilment by <strong>12%</strong> and reduced reporting times by <strong>50%</strong>.</p>
@@ -171,19 +229,7 @@
         </div>
     </section>
 
-    <!-- Contact section with details -->
-    <section id="contact" class="section">
-        <h2>Contact</h2>
-        <p>
-            Interested in working together or learning more? Reach out via the channels below.
-        </p>
-        <ul class="contact-list">
-            <li><strong>Email:</strong> <a href="mailto:akshilhadke@gmail.com">akshilhadke@gmail.com</a></li>
-            <li><strong>Phone:</strong> +1&nbsp;(260)&nbsp;310‑4493</li>
-            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/akshilkumar/" target="_blank" rel="noopener">LinkedIn – Akshil&nbsp;Kumar</a></li>
-            <li><strong>Location:</strong> Fort&nbsp;Wayne, Indiana (ready to relocate)</li>
-        </ul>
-    </section>
+    <!-- Contact section moved to the end of the page.  It appears after the directive project section for a more logical flow. -->
 
     <!-- Prosacco directive project section -->
     <section id="prosacco" class="section">
@@ -226,6 +272,20 @@
                 <li><strong>Customer report:</strong> <a href="data/Prosacco_Customer_Report.xlsx" download>Prosacco Customer Report (Excel)</a></li>
             </ul>
         </div>
+    </section>
+
+    <!-- Contact section with details -->
+    <section id="contact" class="section">
+        <h2>Contact</h2>
+        <p>
+            Interested in working together or learning more? Reach out via the channels below.
+        </p>
+        <ul class="contact-list">
+            <li><strong>Email:</strong> <a href="mailto:akshilhadke@gmail.com">akshilhadke@gmail.com</a></li>
+            <li><strong>Phone:</strong> +1&nbsp;(260)&nbsp;310‑4493</li>
+            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/akshilkumar/" target="_blank" rel="noopener">LinkedIn – Akshil&nbsp;Kumar</a></li>
+            <li><strong>Location:</strong> Fort&nbsp;Wayne, Indiana (ready to relocate)</li>
+        </ul>
     </section>
 
     <!-- Footer -->
