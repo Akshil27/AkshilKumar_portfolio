@@ -1,0 +1,283 @@
+/* Root variables for colours and spacing */
+:root {
+    --primary-color: #003366;
+    --secondary-color: #005da6;
+    --accent-color: #e8b006;
+    --background-light: #f7f9fc;
+    --text-dark: #333;
+    --text-light: #fff;
+    --max-width: 1000px;
+    --section-padding: 60px;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--background-light);
+}
+
+/* Hero section styling */
+.hero {
+    position: relative;
+    height: 80vh;
+    background-image: url('images/analytics_bg.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--text-light);
+}
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+.hero-content h1 {
+    font-size: 3rem;
+    margin: 0;
+    letter-spacing: 2px;
+}
+.hero-content p {
+    font-size: 1.25rem;
+    margin: 10px 0 30px;
+}
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--accent-color);
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+.btn:hover {
+    background-color: #c59a05;
+}
+
+/* Navigation bar styling */
+.navbar {
+    background-color: var(--primary-color);
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+.navbar li {
+    margin: 0 15px;
+}
+.navbar a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px;
+    transition: color 0.3s ease;
+}
+.navbar a:hover {
+    color: var(--accent-color);
+}
+
+/* Section styling */
+.section {
+    padding: var(--section-padding) 20px;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+.section h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+}
+
+/* Experience items */
+.experience-item {
+    margin-bottom: 30px;
+}
+.experience-item h3 {
+    margin-bottom: 5px;
+    color: var(--secondary-color);
+}
+.experience-item h4 {
+    margin-top: 0;
+    font-weight: normal;
+    color: #666;
+}
+.experience-item ul {
+    list-style: disc inside;
+    margin-left: 0;
+    padding-left: 0;
+}
+.experience-item li {
+    margin-bottom: 8px;
+}
+
+/* Skills grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+.skill-group h3 {
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+}
+.skill-group ul {
+    list-style: square inside;
+    margin: 0;
+    padding-left: 0;
+}
+.skill-group li {
+    margin-bottom: 6px;
+}
+
+/* Project items */
+.project-item {
+    margin-bottom: 30px;
+    background-color: #fff;
+    border-left: 4px solid var(--secondary-color);
+    padding: 15px 20px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+.project-item h3 {
+    margin-top: 0;
+    color: var(--secondary-color);
+}
+
+/* Dashboard section */
+.dashboard-controls {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.dashboard-controls label {
+    font-weight: bold;
+}
+.dashboard-controls select {
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.chart-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Prosacco directive project grid */
+.prosacco-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+.prosacco-chart {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    /* Constrain the height of each Prosacco chart container */
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+}
+.prosacco-chart h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    text-align: center;
+}
+.prosacco-note {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #555;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/* Prosacco resources section */
+.prosacco-resources {
+    margin-top: 30px;
+    background-color: #fff;
+    padding: 15px 20px;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.prosacco-resources h3 {
+    margin-top: 0;
+    color: var(--secondary-color);
+}
+.resource-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+.resource-list li {
+    margin-bottom: 8px;
+}
+.resource-list a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+.resource-list a:hover {
+    text-decoration: underline;
+}
+
+/* Adjust canvases within Prosacco charts so they don't overflow vertically */
+.prosacco-chart canvas {
+    flex: 1;
+    width: 100% !important;
+    height: 280px !important;
+}
+
+/* Contact section */
+.contact-list {
+    list-style: none;
+    padding-left: 0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.contact-list li {
+    margin-bottom: 8px;
+}
+.contact-list a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+.contact-list a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
