@@ -10,14 +10,14 @@
  * readable and provides ample contrast.
  */
 :root {
-    /* Updated palette inspired by Google's bright colours */
-    --primary-color: #4285f4;        /* Google blue for navigation and primary accents */
-    --secondary-color: #0f9d58;      /* Google green for headings and highlights */
-    --accent-color: #fbbc05;         /* Google yellow for call‑to‑action buttons */
-    --danger-color: #db4437;         /* Google red for emphasis (e.g., risk bars) */
-    --background-light: #ffffff;     /* clean white background for sections */
-    --text-dark: #202124;            /* dark grey for high contrast */
-    --text-light: #ffffff;           /* white for text on coloured backgrounds */
+    /* Palette inspired by the Squarespace Sackett template: warm neutrals and understated browns */
+    --primary-color: #3a2f2d;        /* dark brown for navigation, headings and footer */
+    --secondary-color: #f6f2e9;      /* very light beige for section backgrounds and highlights */
+    --accent-color: #d2a679;         /* soft caramel for buttons and key accents */
+    --danger-color: #b75e41;         /* muted brick red for alerts (e.g., risk bars) */
+    --background-light: #fdfaf5;     /* off‑white background for the page */
+    --text-dark: #3a2f2d;            /* same dark brown for headings and body text */
+    --text-light: #ffffff;           /* white for text on dark backgrounds */
     --max-width: 1000px;
     --section-padding: 60px;
 }
@@ -35,9 +35,12 @@ body {
     position: relative;
     height: 80vh;
     /* Updated hero background with an abstract supply‑chain image */
-    background-image: url('images/hero_background.png');
+    /* Use root-level image path for GitHub Pages compatibility */
+    background-image: url('hero_background.png');
     background-size: cover;
     background-position: center;
+    /* Create a subtle parallax effect so the image moves slower than the page scroll */
+    background-attachment: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,8 +53,15 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    /* Semi‑transparent overlay for readability while allowing the background image to show through */
-    background-color: rgba(0, 0, 0, 0.3);
+    /*
+     * Semi‑transparent overlay for readability while allowing the background image to show through.
+     * The opacity has been reduced slightly to let more of the underlying
+     * illustration shine through, echoing the airy feel of the Sackett template.
+     */
+    /* Semi‑transparent overlay tinted with the primary colour.  A slightly higher opacity
+       and warmer tone are used to soften the underlying blue image and align with
+       the Sackett-inspired palette. */
+    background-color: rgba(58, 47, 45, 0.35);
 }
 .hero-content {
     position: relative;
@@ -74,19 +84,71 @@ body {
     text-decoration: none;
     font-weight: bold;
     border-radius: 4px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 .btn:hover {
-    background-color: #c59a05;
+    /* Darker shade of the accent colour for hover */
+    background-color: #b88c5a;
+    transform: translateY(-2px);
+}
+
+/* New hero layout to display portrait alongside greeting */
+.hero-wrapper {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.hero-info {
+    flex: 1 1 320px;
+    min-width: 280px;
+}
+.hero-info h1 {
+    font-size: 3rem;
+    margin: 0;
+    letter-spacing: 2px;
+}
+.hero-info p {
+    font-size: 1.25rem;
+    margin: 10px 0 30px;
+}
+.hero-photo {
+    flex: 1 1 260px;
+    min-width: 240px;
+    text-align: center;
+}
+.hero-photo img {
+    max-width: 240px;
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Navigation bar styling */
+/*
+ * Navigation bar styling
+ *
+ * The Sackett template uses a light navigation bar that blends seamlessly
+ * with the page background. To emulate this look, the nav bar now
+ * inherits the page's soft beige background and features a subtle bottom
+ * border for separation. Navigation links are coloured with the deep
+ * navy primary hue and transition to the warm accent colour on hover
+ * to draw the eye. A smooth underline animation reinforces the active
+ * state.
+ */
 .navbar {
-    background-color: var(--primary-color);
-    padding: 10px 0;
+    background-color: var(--background-light);
+    padding: 12px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 .navbar ul {
     list-style: none;
@@ -98,21 +160,47 @@ body {
 .navbar li {
     margin: 0 15px;
 }
+/* Style navigation links for the light nav bar */
 .navbar a {
-    color: var(--text-light);
+    color: var(--primary-color);
     text-decoration: none;
     font-weight: 600;
     padding: 8px;
+    position: relative;
     transition: color 0.3s ease;
 }
 .navbar a:hover {
     color: var(--accent-color);
 }
 
+/* Animated underline effect on navigation links */
+.navbar a::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent-color);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+.navbar a:hover::after,
+.navbar a.active::after {
+    transform: scaleX(1);
+}
+
+/* Active link highlighting for navigation */
 /* Active link highlighting for navigation */
 .navbar a.active {
-    border-bottom: 2px solid var(--accent-color);
     color: var(--accent-color);
+}
+
+/* Click effect on navigation links for immediate feedback */
+.navbar a.clicked {
+    transform: scale(0.95);
 }
 
 /* Section styling */
@@ -261,7 +349,7 @@ body {
     margin-bottom: 8px;
 }
 .resource-list a {
-    color: var(--secondary-color);
+    color: var(--primary-color);
     text-decoration: none;
 }
 .resource-list a:hover {
@@ -269,17 +357,30 @@ body {
 }
 
 /* Leadership philosophy list styling */
-.leadership-list {
+/* Philosophy list styling (replaces leadership list) */
+.philosophy-list {
     list-style: disc inside;
     max-width: 800px;
     margin: 20px auto 0;
     padding-left: 0;
 }
-.leadership-list li {
+.philosophy-list li {
     margin-bottom: 10px;
 }
-.leadership-list strong {
+.philosophy-list strong {
     color: var(--secondary-color);
+}
+
+/* Scroll progress bar styling */
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background-color: var(--accent-color);
+    z-index: 1001;
+    width: 0;
+    transition: width 0.1s linear;
 }
 
 /* Adjust canvases within Prosacco charts so they don't overflow vertically */
@@ -300,7 +401,7 @@ body {
     margin-bottom: 8px;
 }
 .contact-list a {
-    color: var(--secondary-color);
+    color: var(--primary-color);
     text-decoration: none;
 }
 .contact-list a:hover {
@@ -316,6 +417,38 @@ body {
     margin: 0 auto 30px;
     border-radius: 6px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Comment form styles */
+.comment-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+.comment-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.comment-field {
+    flex: 1 1 240px;
+    display: flex;
+    flex-direction: column;
+}
+.comment-field.full-width {
+    flex: 1 1 100%;
+}
+.comment-field label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+.comment-field input,
+.comment-field textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    resize: vertical;
 }
 
 /*

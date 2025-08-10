@@ -12,54 +12,65 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <!-- Hero section with background image and welcome message -->
+    <!-- Hero section with background image, welcome message and portrait -->
     <header id="home" class="hero">
         <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1>Akshil&nbsp;Kumar</h1>
-            <p>Business &amp; Supply Chain Analyst</p>
-            <!-- Link anchors down to the introduction section -->
-            <a href="#intro" class="btn">Discover More</a>
+        <!-- Wrapper to align text and photo side by side on wider screens -->
+        <div class="hero-wrapper">
+            <div class="hero-info">
+                <h1>Akshil&nbsp;Kumar</h1>
+                <p>Business &amp; Supply Chain Analyst</p>
+                <!-- Primary call to action invites readers to explore the journey section -->
+                <a href="#journey" class="btn">Explore My Journey</a>
+            </div>
+            <div class="hero-photo">
+                <img src="profile.jpg" alt="Akshil Kumar portrait">
+            </div>
         </div>
     </header>
+
+    <!-- Scroll progress bar indicates how far down the page the visitor has scrolled -->
+    <div id="progress-bar" class="progress-bar"></div>
 
     <!-- Navigation bar for section links -->
     <nav class="navbar">
         <ul>
-            <!-- Navigation is ordered to reflect the flow of the page: introduction, background, experience, skills, leadership, projects, dashboard, directive project and contact -->
-            <li><a href="#intro">Intro</a></li>
+            <!-- Navigation is ordered to reflect the flow of the page: journey, background, experience, skills, projects, dashboard, directive project and contact -->
+            <li><a href="#journey">Journey</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#skills">Skills</a></li>
-            <li><a href="#leadership">Leadership</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#dashboard">Dashboard</a></li>
             <li><a href="#prosacco">Prosacco Analysis</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li><a href="#comments">Comments</a></li>
         </ul>
     </nav>
 
-    <!-- Introduction section with profile photo and resume link -->
-    <section id="intro" class="section intro-section">
+    <!-- Journey section with extended story and resume link -->
+    <section id="journey" class="section intro-section">
         <div class="intro-grid">
             <div class="intro-text">
-                <h2>Introduction</h2>
+                <h2>My Journey</h2>
                 <p>
-                    Hello! I’m Akshil Kumar, a recent M.S. graduate in Industrial Technology and
-                    Manufacturing who is deeply interested in business intelligence and supply chain
-                    analytics. Through my graduate studies and professional experience, I’ve honed my
-                    ability to transform operational data into actionable insights. I specialise in
-                    designing forecasting models, building interactive dashboards and identifying process
-                    bottlenecks across complex supply chains. My work has cut reporting time by
-                    80&nbsp;percent, prevented over $285K in forecast‑related losses and reduced financial risk by
-                    $250K per year. I’m passionate about using data storytelling to drive informed
-                    decisions and delight stakeholders.
+                    Welcome! I’m Akshil Kumar, a recent M.S. graduate in Industrial Technology and
+                    Manufacturing with a passion for business intelligence and supply‑chain analytics.
+                    My story began in the trenches of operations where I learned that spreadsheets and
+                    schedules are only the beginning of a supply chain’s narrative. Over the years I’ve
+                    built SQL pipelines, dashboards and forecasting models that cut reporting time by
+                    <strong>80&nbsp;percent</strong>, prevented more than <strong>$285K</strong> in losses and
+                    reduced financial risk by <strong>$250K per year</strong>. More importantly,
+                    these projects taught me how to listen to stakeholders, translate their needs into
+                    meaningful metrics and tell clear stories with data. Through my graduate studies at
+                    Purdue University Fort Wayne, I explored predictive modelling and systems thinking,
+                    culminating in a directive project that integrated inventory forecasting and
+                    bottleneck detection. I invite you to explore the sections below to see how these
+                    experiences shape my approach to analytics.
                 </p>
                 <a href="data/AkshilKumar_Resume.pdf" download class="btn">Download Resume</a>
             </div>
-            <div class="intro-photo">
-                <img src="images/profile.jpg" alt="Akshil Kumar portrait">
-            </div>
+            <!-- Portrait is shown in the hero; removed here to avoid repetition -->
         </div>
     </section>
 
@@ -70,10 +81,29 @@
             I’m a strategic and resourceful analyst with over three years of experience in B2B operations
             analytics, SQL and business intelligence. My passion lies in leveraging data to solve complex
             problems and drive operational excellence. Over the course of my career I’ve cut reporting time by
-            80%, prevented more than $285K in forecast‑related losses and reduced annual financial risk by
-            $250K through predictive analytics. I enjoy translating business requirements into scalable KPI
-            dashboards and models, managing large datasets and collaborating with cross‑functional teams to
-            deliver customer‑focused, data‑driven solutions.
+            <strong>80%</strong>, prevented more than <strong>$285K</strong> in forecast‑related losses and reduced
+            annual financial risk by <strong>$250K</strong> through predictive analytics. I enjoy translating
+            business requirements into scalable KPI dashboards and models, managing large datasets and
+            collaborating with cross‑functional teams to deliver customer‑focused, data‑driven solutions.
+        </p>
+        <p>
+            Before pursuing my master’s degree in Industrial Technology and Manufacturing, I spent several
+            years in the trenches of business operations—optimising budgets, streamlining workflows and
+            uncovering hidden patterns in massive spreadsheets. That hands‑on experience taught me that
+            manufacturing and supply chains are living systems that need both strategic oversight and
+            real‑time insight. My graduate studies built on that foundation by exposing me to modern
+            production systems and predictive modelling techniques. I applied those skills in my directive
+            project, where I designed an integrated inventory forecasting and bottleneck detection framework
+            for a simulated factory. The project sparked my fascination with storytelling through data and
+            reinforced my commitment to building analytical tools that empower decision‑makers.
+        </p>
+        <p>
+            Outside of academics and professional roles, I’ve built cross‑cultural teams and volunteered
+            in community workshops on digital literacy. These experiences taught me the value of empathy,
+            adaptability and clear communication—qualities that translate directly to stakeholder
+            engagement and project success. I’m eager to collaborate with organisations that want to
+            transform their operations through data storytelling and human‑centric design, using
+            technology as a bridge between insights and impact.
         </p>
     </section>
 
@@ -165,39 +195,36 @@
         </div>
     </section>
 
-    <!-- Leadership philosophy section emphasising Amazon's principles -->
-    <section id="leadership" class="section">
-        <h2>Leadership Philosophy</h2>
+    <!-- Philosophy and Approach section reframed to tell a story rather than list corporate values -->
+    <section id="philosophy" class="section">
+        <h2>My Philosophy &amp; Approach</h2>
         <p>
-            Instead of merely repeating Amazon’s Leadership Principles, I’ve woven them into my own
-            professional philosophy. These guiding themes shape how I approach analytics projects,
-            collaborate with teammates and drive impact across the supply chain. Here’s how I bring
-            them to life in my work:
+            Data analysis, for me, is as much about people as it is about numbers. Early in my career I
+            learned that a successful dashboard isn’t just a set of charts—it’s a narrative that
+            resonates with the audience. My philosophy is to begin every project by understanding
+            the stakeholder’s story: What decision are they trying to make? What pain points are
+            they experiencing? Only then can I craft solutions that truly matter. I strive to
+            balance technical rigour with empathy, ensuring that insights are both accurate and
+            actionable.
         </p>
-        <ul class="leadership-list">
-            <li><strong>Customer Obsession:</strong> I always start with the needs of internal and
-                external customers when designing data solutions. My dashboards and models focus on
-                answering the right questions so that end users are delighted and empowered.</li>
-            <li><strong>Ownership:</strong> I take full responsibility for projects from data
-                modelling through implementation and follow‑up. When challenges arise, I lean in,
-                communicate transparently and proactively seek improvements rather than waiting for
-                direction.</li>
-            <li><strong>Invent &amp; Simplify:</strong> I look for creative ways to simplify complex
-                processes. Whether designing an automated report or a forecasting algorithm, I
-                challenge assumptions and build intuitive tools that make decision‑making easy for
-                stakeholders.</li>
-            <li><strong>Learn &amp; Be Curious:</strong> I continuously expand my skill set—be it
-                exploring new BI platforms, studying emerging supply chain trends or experimenting
-                with predictive models. This curiosity helps me stay ahead of the curve and bring
-                fresh perspectives to each problem.</li>
-        </ul>
+        <p>
+            Throughout my journey I’ve discovered the power of ownership and continuous
+            improvement. I like to think of projects as partnerships: I take responsibility for
+            shepherding ideas from exploratory analysis through implementation, keeping open lines
+            of communication along the way. I constantly challenge myself to simplify complex
+            processes, automate repetitive tasks and explore new techniques. Curiosity drives me
+            forward—whether that’s learning a new visualisation tool or diving into an unfamiliar
+            dataset. This mindset helps me adapt quickly and deliver solutions that evolve with
+            changing business needs.
+        </p>
     </section>
 
     <!-- Projects section highlighting key accomplishments -->
     <section id="projects" class="section">
         <h2>Highlighted Projects</h2>
         <!-- Illustrative image emphasising manufacturing analytics -->
-        <img src="images/manufacturing_analytics.png" alt="Manufacturing analytics illustration" class="section-image">
+        <!-- Load the illustration from the repository root -->
+        <img src="manufacturing_analytics.png" alt="Manufacturing analytics illustration" class="section-image">
         <div class="project-item">
             <h3>Inventory Forecasting &amp; Bottleneck Detection</h3>
             <p>This project combined SQL and Power&nbsp;BI to create demand forecasting models and bottleneck detection algorithms for a manufacturing environment. By analysing historical demand, production throughput and order data, the models decreased stockouts by <strong>18%</strong>, increased order fulfilment by <strong>12%</strong> and reduced reporting times by <strong>50%</strong>.</p>
@@ -286,6 +313,33 @@
             <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/akshilkumar/" target="_blank" rel="noopener">LinkedIn – Akshil&nbsp;Kumar</a></li>
             <li><strong>Location:</strong> Fort&nbsp;Wayne, Indiana (ready to relocate)</li>
         </ul>
+    </section>
+
+    <!-- Comments section allowing visitors to send feedback via email -->
+    <section id="comments" class="section">
+        <h2>Share Your Thoughts</h2>
+        <p>
+            I’d love to hear your feedback or ideas. Fill out the form below and your message will
+            open as an email draft in your default mail client. Your comments help me improve this
+            portfolio and better tell my story.
+        </p>
+        <form id="comment-form" class="comment-form" onsubmit="sendComment(event)">
+            <div class="comment-grid">
+                <div class="comment-field">
+                    <label for="comment-name">Name</label>
+                    <input type="text" id="comment-name" required placeholder="Your name">
+                </div>
+                <div class="comment-field">
+                    <label for="comment-email">Email</label>
+                    <input type="email" id="comment-email" required placeholder="Your email">
+                </div>
+            </div>
+            <div class="comment-field full-width">
+                <label for="comment-message">Message</label>
+                <textarea id="comment-message" rows="5" required placeholder="Write your comment here..."></textarea>
+            </div>
+            <button type="submit" class="btn">Send Comment</button>
+        </form>
     </section>
 
     <!-- Footer -->

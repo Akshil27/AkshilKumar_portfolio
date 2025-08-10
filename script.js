@@ -13,15 +13,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 {
                     label: 'Actual Demand',
                     data: [520, 540, 510, 560, 570, 590],
-                    borderColor: '#005da6',
-                    backgroundColor: 'rgba(0, 93, 166, 0.1)',
+                    // Use the dark brown primary colour for the actual series
+                    borderColor: '#3a2f2d',
+                    backgroundColor: 'rgba(58, 47, 45, 0.1)',
                     tension: 0.3,
                 },
                 {
                     label: 'Forecast Demand',
                     data: [500, 520, 530, 550, 565, 580],
-                    borderColor: '#e8b006',
-                    backgroundColor: 'rgba(232, 176, 6, 0.1)',
+                    // Use the soft caramel accent colour for the forecast series
+                    borderColor: '#d2a679',
+                    backgroundColor: 'rgba(210, 166, 121, 0.1)',
                     tension: 0.3,
                 }
             ]
@@ -34,15 +36,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 {
                     label: 'On‑time Delivery (%)',
                     data: [80, 82, 85, 87, 89, 92],
-                    borderColor: '#005da6',
-                    backgroundColor: 'rgba(0, 93, 166, 0.1)',
+                    borderColor: '#3a2f2d',
+                    backgroundColor: 'rgba(58, 47, 45, 0.1)',
                     tension: 0.3,
                 },
                 {
                     label: 'Stockout Rate (%)',
                     data: [15, 14, 12, 11, 9, 8],
-                    borderColor: '#e8b006',
-                    backgroundColor: 'rgba(232, 176, 6, 0.1)',
+                    borderColor: '#b75e41',
+                    backgroundColor: 'rgba(183, 94, 65, 0.1)',
                     tension: 0.3,
                 }
             ]
@@ -55,7 +57,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 {
                     label: 'Risk Exposure ($K)',
                     data: [120, 180, 80],
-                    backgroundColor: ['#005da6', '#e8b006', '#003366'],
+                    // Apply a triad of portfolio colours: accent, primary and danger
+                    backgroundColor: ['#d2a679', '#3a2f2d', '#b75e41'],
                 }
             ]
         }
@@ -125,8 +128,69 @@ document.addEventListener('DOMContentLoaded', () => {
             if (section) {
                 section.scrollIntoView({ behavior: 'smooth' });
             }
+            // Add a temporary click effect class for interaction feedback
+            link.classList.add('clicked');
+            setTimeout(() => {
+                link.classList.remove('clicked');
+            }, 300);
         });
     });
+
+    // Highlight the active navigation link based on scroll position
+    const navLinks = document.querySelectorAll('.navbar a');
+    function updateActiveLink() {
+        let activeSet = false;
+        navLinks.forEach((link) => link.classList.remove('active'));
+        // Iterate through sections from bottom to top to find the current section in view
+        for (let i = navLinks.length - 1; i >= 0; i--) {
+            const section = document.querySelector(navLinks[i].getAttribute('href'));
+            if (section) {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= 200) {
+                    navLinks[i].classList.add('active');
+                    activeSet = true;
+                    break;
+                }
+            }
+        }
+        // If no section is above the threshold, highlight the first link
+        if (!activeSet && navLinks.length > 0) {
+            navLinks[0].classList.add('active');
+        }
+    }
+    window.addEventListener('scroll', updateActiveLink);
+    // Run on load to set initial state
+    updateActiveLink();
+
+    // Scroll progress bar update
+    const progressBar = document.getElementById('progress-bar');
+    function updateProgress() {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrolled = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        progressBar.style.width = scrolled + '%';
+    }
+    window.addEventListener('scroll', updateProgress);
+    // Run on load
+    updateProgress();
+
+    // Comment form submission handler
+    window.sendComment = function(event) {
+        // Prevent default form submission
+        event.preventDefault();
+        const name = document.getElementById('comment-name').value.trim();
+        const email = document.getElementById('comment-email').value.trim();
+        const message = document.getElementById('comment-message').value.trim();
+        if (!name || !email || !message) {
+            alert('Please fill in all fields before submitting your comment.');
+            return;
+        }
+        // Construct a mailto link to open the user’s email client
+        const subject = encodeURIComponent('Portfolio Comment from ' + name);
+        const body = encodeURIComponent(message + '\n\nFrom: ' + name + ' (' + email + ')');
+        const mailtoLink = 'mailto:akshilhadke@gmail.com?subject=' + subject + '&body=' + body;
+        window.location.href = mailtoLink;
+    };
 
     // ----------------------------
     // Prosacco directive charts
@@ -150,8 +214,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 {
                     label: 'Forecasted Sales (units)',
                     data: forecastData,
-                    borderColor: '#005da6',
-                    backgroundColor: 'rgba(0, 93, 166, 0.1)',
+                    // Use the soft caramel accent colour for the line and a transparent fill
+                    borderColor: '#d2a679',
+                    backgroundColor: 'rgba(210, 166, 121, 0.1)',
                     tension: 0.3
                 }
             ]
@@ -183,7 +248,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 {
                     label: 'Available Quantity (week 39)',
                     data: inventoryData,
-                    backgroundColor: inventoryLabels.map((_, idx) => idx % 2 === 0 ? '#003366' : '#005da6'),
+                    // Alternate between the accent and primary colours for the inventory bars
+                    backgroundColor: inventoryLabels.map((_, idx) => idx % 2 === 0 ? '#d2a679' : '#3a2f2d'),
                 }
             ]
         },
@@ -214,7 +280,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 {
                     label: 'Sales (USD)',
                     data: customerData,
-                    backgroundColor: ['#003366','#005da6','#e8b006','#0073e6','#ffd966'],
+                    // Apply a palette of complementary colours that reflect the portfolio theme
+                    backgroundColor: ['#d2a679', '#3a2f2d', '#b75e41', '#8c7d6d', '#c5b7a3'],
                 }
             ]
         },
