@@ -11,13 +11,14 @@
  */
 :root {
     /* Palette inspired by the Squarespace Sackett template: warm neutrals and understated browns */
-    --primary-color: #3a2f2d;        /* dark brown for navigation, headings and footer */
-    --secondary-color: #f6f2e9;      /* very light beige for section backgrounds and highlights */
-    --accent-color: #d2a679;         /* soft caramel for buttons and key accents */
-    --danger-color: #b75e41;         /* muted brick red for alerts (e.g., risk bars) */
-    --background-light: #fdfaf5;     /* off‑white background for the page */
-    --text-dark: #3a2f2d;            /* same dark brown for headings and body text */
-    --text-light: #ffffff;           /* white for text on dark backgrounds */
+    /* Palette updated to a rich, posh aesthetic: deep greens and black with gold accents */
+    --primary-color: #0a0f1c;        /* royal black/dark navy for headings, navigation and footer */
+    --secondary-color: #1a3a32;      /* dark green for backgrounds and highlights */
+    --accent-color: #c5a880;         /* warm gold for buttons and call‑to‑actions */
+    --danger-color: #a33e2d;         /* brick red for alerts and risk bars */
+    --background-light: #0f1e25;     /* very dark teal for page background */
+    --text-dark: #f5f5f5;            /* light grey for body text and headings */
+    --text-light: #ffffff;           /* pure white for text on very dark surfaces */
     --max-width: 1000px;
     --section-padding: 60px;
 }
@@ -58,10 +59,11 @@ body {
      * The opacity has been reduced slightly to let more of the underlying
      * illustration shine through, echoing the airy feel of the Sackett template.
      */
-    /* Semi‑transparent overlay tinted with the primary colour.  A slightly higher opacity
-       and warmer tone are used to soften the underlying blue image and align with
-       the Sackett-inspired palette. */
-    background-color: rgba(58, 47, 45, 0.35);
+    /* Semi‑transparent overlay tinted with the primary colour. A higher opacity
+       emphasises the rich, dark aesthetic while allowing the gold and green pattern
+       to peek through. */
+    /* Reduce the opacity slightly so the dark green marble pattern is visible */
+    background-color: rgba(10, 15, 28, 0.45);
 }
 .hero-content {
     position: relative;
@@ -88,7 +90,7 @@ body {
 }
 .btn:hover {
     /* Darker shade of the accent colour for hover */
-    background-color: #b88c5a;
+    background-color: #a68a5c;
     transform: translateY(-2px);
 }
 
@@ -143,12 +145,13 @@ body {
  * state.
  */
 .navbar {
-    background-color: var(--background-light);
+    background-color: var(--primary-color);
     padding: 12px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    /* Subtle border with a hint of gold for separation */
+    border-bottom: 1px solid rgba(197, 168, 128, 0.2);
 }
 .navbar ul {
     list-style: none;
@@ -162,7 +165,7 @@ body {
 }
 /* Style navigation links for the light nav bar */
 .navbar a {
-    color: var(--primary-color);
+    color: var(--text-dark);
     text-decoration: none;
     font-weight: 600;
     padding: 8px;
@@ -211,7 +214,8 @@ body {
 }
 .section h2 {
     text-align: center;
-    color: var(--primary-color);
+    /* Use the accent colour for section headings so they pop against the dark background */
+    color: var(--accent-color);
     margin-bottom: 30px;
 }
 
@@ -221,12 +225,14 @@ body {
 }
 .experience-item h3 {
     margin-bottom: 5px;
-    color: var(--secondary-color);
+    /* Headings in experience section use the accent colour for contrast */
+    color: var(--accent-color);
 }
 .experience-item h4 {
     margin-top: 0;
     font-weight: normal;
-    color: #666;
+    /* Lighten subheading text for better contrast on dark backgrounds */
+    color: #b2b2b2;
 }
 .experience-item ul {
     list-style: disc inside;
@@ -245,7 +251,8 @@ body {
 }
 .skill-group h3 {
     margin-bottom: 10px;
-    color: var(--secondary-color);
+    /* Use accent colour for skill group titles to improve visibility */
+    color: var(--accent-color);
 }
 .skill-group ul {
     list-style: square inside;
@@ -259,14 +266,14 @@ body {
 /* Project items */
 .project-item {
     margin-bottom: 30px;
-    background-color: #fff;
-    border-left: 4px solid var(--secondary-color);
+    background-color: var(--secondary-color);
+    border-left: 4px solid var(--accent-color);
     padding: 15px 20px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
 .project-item h3 {
     margin-top: 0;
-    color: var(--secondary-color);
+    color: var(--accent-color);
 }
 
 /* Dashboard section */
@@ -299,7 +306,7 @@ body {
     margin-top: 20px;
 }
 .prosacco-chart {
-    background-color: #fff;
+    background-color: var(--secondary-color);
     padding: 15px;
     border-radius: 6px;
     box-shadow: 0 1px 4px rgba(0,0,0,0.08);
@@ -312,13 +319,14 @@ body {
     margin-top: 0;
     margin-bottom: 10px;
     font-size: 1.1rem;
-    color: var(--secondary-color);
+    color: var(--accent-color);
     text-align: center;
 }
 .prosacco-note {
     margin-top: 20px;
     font-size: 0.9rem;
-    color: #555;
+    /* Lighten note text to stand out on the dark section */
+    color: #cccccc;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
@@ -328,7 +336,7 @@ body {
 /* Prosacco resources section */
 .prosacco-resources {
     margin-top: 30px;
-    background-color: #fff;
+    background-color: var(--secondary-color);
     padding: 15px 20px;
     border-radius: 6px;
     box-shadow: 0 1px 4px rgba(0,0,0,0.08);
@@ -338,7 +346,7 @@ body {
 }
 .prosacco-resources h3 {
     margin-top: 0;
-    color: var(--secondary-color);
+    color: var(--accent-color);
 }
 .resource-list {
     list-style: none;
@@ -349,7 +357,8 @@ body {
     margin-bottom: 8px;
 }
 .resource-list a {
-    color: var(--primary-color);
+    /* Resource links use the accent colour for better contrast */
+    color: var(--accent-color);
     text-decoration: none;
 }
 .resource-list a:hover {
@@ -401,11 +410,26 @@ body {
     margin-bottom: 8px;
 }
 .contact-list a {
-    color: var(--primary-color);
+    /* Use accent colour for links so they stand out on dark backgrounds */
+    color: var(--accent-color);
     text-decoration: none;
 }
 .contact-list a:hover {
     text-decoration: underline;
+}
+
+/* Certifications section inherits general section styling but emphasises the credential list */
+#certifications .skill-group {
+    background-color: var(--secondary-color);
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+#certifications .skill-group h3 {
+    color: var(--accent-color);
+}
+#certifications .skill-group li {
+    margin-bottom: 6px;
 }
 
 /* Generic illustrative image styling used in sections such as Projects */

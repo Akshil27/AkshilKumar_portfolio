@@ -13,17 +13,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 {
                     label: 'Actual Demand',
                     data: [520, 540, 510, 560, 570, 590],
-                    // Use the dark brown primary colour for the actual series
-                    borderColor: '#3a2f2d',
-                    backgroundColor: 'rgba(58, 47, 45, 0.1)',
+                    // Use the darkest primary colour for the actual series
+                    borderColor: '#0a0f1c',
+                    backgroundColor: 'rgba(10, 15, 28, 0.1)',
                     tension: 0.3,
                 },
                 {
                     label: 'Forecast Demand',
                     data: [500, 520, 530, 550, 565, 580],
-                    // Use the soft caramel accent colour for the forecast series
-                    borderColor: '#d2a679',
-                    backgroundColor: 'rgba(210, 166, 121, 0.1)',
+                    // Use the gold accent colour for the forecast series
+                    borderColor: '#c5a880',
+                    backgroundColor: 'rgba(197, 168, 128, 0.1)',
                     tension: 0.3,
                 }
             ]
@@ -36,15 +36,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 {
                     label: 'On‑time Delivery (%)',
                     data: [80, 82, 85, 87, 89, 92],
-                    borderColor: '#3a2f2d',
-                    backgroundColor: 'rgba(58, 47, 45, 0.1)',
+                    borderColor: '#0a0f1c',
+                    backgroundColor: 'rgba(10, 15, 28, 0.1)',
                     tension: 0.3,
                 },
                 {
                     label: 'Stockout Rate (%)',
                     data: [15, 14, 12, 11, 9, 8],
-                    borderColor: '#b75e41',
-                    backgroundColor: 'rgba(183, 94, 65, 0.1)',
+                    borderColor: '#a33e2d',
+                    backgroundColor: 'rgba(163, 62, 45, 0.1)',
                     tension: 0.3,
                 }
             ]
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     label: 'Risk Exposure ($K)',
                     data: [120, 180, 80],
                     // Apply a triad of portfolio colours: accent, primary and danger
-                    backgroundColor: ['#d2a679', '#3a2f2d', '#b75e41'],
+                    backgroundColor: ['#c5a880', '#0a0f1c', '#a33e2d'],
                 }
             ]
         }
