@@ -9,6 +9,9 @@
  * draws the eye to call‑to‑action buttons. A light background keeps text
  * readable and provides ample contrast.
  */
+/* Import elegant serif and sans fonts to elevate the look and feel.  Playfair Display adds a touch of luxury for headings while Open Sans keeps body text clean and readable. */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap');
+
 :root {
     /*
      * Rich and posh palette
@@ -17,12 +20,12 @@
      * atmosphere reminiscent of high‑end portfolios. The off‑white background
      * keeps pages airy while the accent tone draws attention to buttons and links.
      */
-    --primary-color: #333333;        /* deep grey for headings and key text */
-    --secondary-color: #f3f3f3;      /* soft warm grey for section panels */
-    --accent-color: #b59f72;         /* subdued gold for buttons and highlights */
-    --danger-color: #a75f5f;         /* muted brick red for risk indicators */
-    --background-light: #fafafa;     /* nearly white backdrop for the page */
-    --text-dark: #333333;            /* dark grey for body copy */
+    --primary-color: #2a2a2a;        /* rich charcoal for headings and key text */
+    --secondary-color: #f7f7f7;      /* very light grey for section panels */
+    --accent-color: #c5a472;         /* warm champagne gold for buttons and highlights */
+    --danger-color: #b07b7b;         /* muted blush red for risk indicators */
+    --background-light: #ffffff;     /* pure white backdrop for the page */
+    --text-dark: #2a2a2a;            /* charcoal for body copy */
     --text-light: #ffffff;           /* white for text on dark backgrounds */
     --max-width: 1000px;
     --section-padding: 60px;
@@ -30,8 +33,8 @@
 
 body {
     margin: 0;
-    /* Use a refined sans‑serif for body text for improved readability */
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    /* Use Open Sans for body text: clean and legible for longer passages */
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
     line-height: 1.6;
     color: var(--text-dark);
     background-color: var(--background-light);
@@ -244,10 +247,11 @@ body {
     /* Section headings are darker for maximum contrast on light panels */
     color: var(--primary-color);
     margin-bottom: 30px;
-    font-size: 2rem;
-    font-family: Georgia, 'Times New Roman', serif;
-    /* Drop shadow gives an elegant embossed effect */
-    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    /* Increase the size of section headings and use a luxurious serif font */
+    font-size: 2.4rem;
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    /* Slightly stronger shadow for enhanced legibility on light backgrounds */
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
 }
 
 /* Experience items */
@@ -256,9 +260,9 @@ body {
 }
 .experience-item h3 {
     margin-bottom: 5px;
-    /* Use accent colour and serif font for experience titles */
+    /* Use accent colour and Playfair Display for experience titles */
     color: var(--accent-color);
-    font-family: Georgia, 'Times New Roman', serif;
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
 }
 .experience-item h4 {
     margin-top: 0;
@@ -284,9 +288,9 @@ body {
 }
 .skill-group h3 {
     margin-bottom: 10px;
-    /* Use accent colour for skill group titles to improve visibility */
+    /* Use accent colour and Playfair Display to improve visibility */
     color: var(--accent-color);
-    font-family: Georgia, 'Times New Roman', serif;
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
 }
 .skill-group ul {
     list-style: square inside;
