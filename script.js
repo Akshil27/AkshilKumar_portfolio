@@ -13,17 +13,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 {
                     label: 'Actual Demand',
                     data: [520, 540, 510, 560, 570, 590],
-                    // Use the darkest primary colour for the actual series
-                    borderColor: '#0a0f1c',
-                    backgroundColor: 'rgba(10, 15, 28, 0.1)',
+                    // Use charcoal for the actual series in the light theme
+                    borderColor: '#333333',
+                    backgroundColor: 'rgba(51, 51, 51, 0.05)',
                     tension: 0.3,
                 },
                 {
                     label: 'Forecast Demand',
                     data: [500, 520, 530, 550, 565, 580],
-                    // Use the gold accent colour for the forecast series
-                    borderColor: '#c5a880',
-                    backgroundColor: 'rgba(197, 168, 128, 0.1)',
+                    // Use the champagne accent colour for the forecast series
+                    borderColor: '#b59f72',
+                    backgroundColor: 'rgba(181, 149, 114, 0.1)',
                     tension: 0.3,
                 }
             ]
@@ -36,15 +36,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 {
                     label: 'On‑time Delivery (%)',
                     data: [80, 82, 85, 87, 89, 92],
-                    borderColor: '#0a0f1c',
-                    backgroundColor: 'rgba(10, 15, 28, 0.1)',
+                    borderColor: '#333333',
+                    backgroundColor: 'rgba(51, 51, 51, 0.05)',
                     tension: 0.3,
                 },
                 {
                     label: 'Stockout Rate (%)',
                     data: [15, 14, 12, 11, 9, 8],
-                    borderColor: '#a33e2d',
-                    backgroundColor: 'rgba(163, 62, 45, 0.1)',
+                    borderColor: '#a75f5f',
+                    backgroundColor: 'rgba(167, 95, 95, 0.1)',
                     tension: 0.3,
                 }
             ]
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     label: 'Risk Exposure ($K)',
                     data: [120, 180, 80],
                     // Apply a triad of portfolio colours: accent, primary and danger
-                    backgroundColor: ['#c5a880', '#0a0f1c', '#a33e2d'],
+                    backgroundColor: ['#b59f72', '#333333', '#a75f5f'],
                 }
             ]
         }
@@ -174,6 +174,40 @@ document.addEventListener('DOMContentLoaded', () => {
     // Run on load
     updateProgress();
 
+    // Reveal sections with a slide-in animation when they enter the viewport
+    const sections = document.querySelectorAll('.section');
+    const revealOptions = {
+        // Trigger the animation once roughly 20% of the section is visible
+        threshold: 0.2,
+        rootMargin: '0px 0px -10% 0px'
+    };
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, revealOptions);
+    sections.forEach(section => {
+        revealObserver.observe(section);
+    });
+
+    // Animate sections into view on scroll using IntersectionObserver
+    const animatedSections = document.querySelectorAll('.section');
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                // Stop observing once the section is visible to prevent repeated triggers
+                sectionObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2, rootMargin: '0px 0px -10% 0px' });
+    animatedSections.forEach((section) => {
+        sectionObserver.observe(section);
+    });
+
     // Comment form submission handler
     window.sendComment = function(event) {
         // Prevent default form submission
@@ -214,9 +248,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 {
                     label: 'Forecasted Sales (units)',
                     data: forecastData,
-                    // Use the soft caramel accent colour for the line and a transparent fill
-                    borderColor: '#d2a679',
-                    backgroundColor: 'rgba(210, 166, 121, 0.1)',
+                    // Use the accent colour for the line and a transparent fill
+                    borderColor: '#b59f72',
+                    backgroundColor: 'rgba(181, 149, 114, 0.1)',
                     tension: 0.3
                 }
             ]
@@ -249,7 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     label: 'Available Quantity (week 39)',
                     data: inventoryData,
                     // Alternate between the accent and primary colours for the inventory bars
-                    backgroundColor: inventoryLabels.map((_, idx) => idx % 2 === 0 ? '#d2a679' : '#3a2f2d'),
+                    backgroundColor: inventoryLabels.map((_, idx) => idx % 2 === 0 ? '#b59f72' : '#333333'),
                 }
             ]
         },
@@ -281,7 +315,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     label: 'Sales (USD)',
                     data: customerData,
                     // Apply a palette of complementary colours that reflect the portfolio theme
-                    backgroundColor: ['#d2a679', '#3a2f2d', '#b75e41', '#8c7d6d', '#c5b7a3'],
+                    backgroundColor: ['#b59f72', '#333333', '#a75f5f', '#8c7d6d', '#c5b7a3'],
                 }
             ]
         },

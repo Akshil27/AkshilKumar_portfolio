@@ -10,22 +10,28 @@
  * readable and provides ample contrast.
  */
 :root {
-    /* Palette inspired by the Squarespace Sackett template: warm neutrals and understated browns */
-    /* Palette updated to a rich, posh aesthetic: deep greens and black with gold accents */
-    --primary-color: #0a0f1c;        /* royal black/dark navy for headings, navigation and footer */
-    --secondary-color: #1a3a32;      /* dark green for backgrounds and highlights */
-    --accent-color: #c5a880;         /* warm gold for buttons and call‑to‑actions */
-    --danger-color: #a33e2d;         /* brick red for alerts and risk bars */
-    --background-light: #0f1e25;     /* very dark teal for page background */
-    --text-dark: #f5f5f5;            /* light grey for body text and headings */
-    --text-light: #ffffff;           /* pure white for text on very dark surfaces */
+    /*
+     * Rich and posh palette
+     *
+     * A royal blend of charcoal, warm greys and champagne gold creates an elegant
+     * atmosphere reminiscent of high‑end portfolios. The off‑white background
+     * keeps pages airy while the accent tone draws attention to buttons and links.
+     */
+    --primary-color: #333333;        /* deep grey for headings and key text */
+    --secondary-color: #f3f3f3;      /* soft warm grey for section panels */
+    --accent-color: #b59f72;         /* subdued gold for buttons and highlights */
+    --danger-color: #a75f5f;         /* muted brick red for risk indicators */
+    --background-light: #fafafa;     /* nearly white backdrop for the page */
+    --text-dark: #333333;            /* dark grey for body copy */
+    --text-light: #ffffff;           /* white for text on dark backgrounds */
     --max-width: 1000px;
     --section-padding: 60px;
 }
 
 body {
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, sans-serif;
+    /* Use a refined sans‑serif for body text for improved readability */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     line-height: 1.6;
     color: var(--text-dark);
     background-color: var(--background-light);
@@ -46,7 +52,8 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: var(--text-light);
+    /* Use dark text on the lightened hero background for clarity */
+    color: var(--primary-color);
 }
 .hero-overlay {
     position: absolute;
@@ -62,8 +69,9 @@ body {
     /* Semi‑transparent overlay tinted with the primary colour. A higher opacity
        emphasises the rich, dark aesthetic while allowing the gold and green pattern
        to peek through. */
-    /* Reduce the opacity slightly so the dark green marble pattern is visible */
-    background-color: rgba(10, 15, 28, 0.45);
+    /* Lighten overlay to soften the dark marble pattern for the light theme */
+    /* Light overlay helps the dark marble pattern read as subtle texture behind the hero content */
+    background-color: rgba(255, 255, 255, 0.75);
 }
 .hero-content {
     position: relative;
@@ -111,13 +119,16 @@ body {
     min-width: 280px;
 }
 .hero-info h1 {
-    font-size: 3rem;
+    font-size: 3.2rem;
     margin: 0;
     letter-spacing: 2px;
+    /* Soft shadow to lift the heading off the background */
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
 }
 .hero-info p {
-    font-size: 1.25rem;
+    font-size: 1.35rem;
     margin: 10px 0 30px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 .hero-photo {
     flex: 1 1 260px;
@@ -145,13 +156,13 @@ body {
  * state.
  */
 .navbar {
-    background-color: var(--primary-color);
+    background-color: var(--background-light);
     padding: 12px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    /* Subtle border with a hint of gold for separation */
-    border-bottom: 1px solid rgba(197, 168, 128, 0.2);
+    /* Subtle border below the nav to anchor it to the page */
+    border-bottom: 1px solid rgba(181, 162, 122, 0.3);
 }
 .navbar ul {
     list-style: none;
@@ -165,12 +176,14 @@ body {
 }
 /* Style navigation links for the light nav bar */
 .navbar a {
-    color: var(--text-dark);
+    /* Use uppercase for nav links to improve visibility */
+    color: var(--primary-color);
     text-decoration: none;
     font-weight: 600;
     padding: 8px;
     position: relative;
     transition: color 0.3s ease;
+    text-transform: uppercase;
 }
 .navbar a:hover {
     color: var(--accent-color);
@@ -210,13 +223,31 @@ body {
 .section {
     padding: var(--section-padding) 20px;
     max-width: var(--max-width);
-    margin: 0 auto;
+    margin: var(--section-padding) auto;
+    /* Light panels with a soft drop shadow to separate them from the off‑white page */
+    background-color: var(--secondary-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    /* Hidden by default for slide-in animation */
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* When a section is scrolled into view, reveal it */
+.section.visible {
+    opacity: 1;
+    transform: none;
 }
 .section h2 {
     text-align: center;
-    /* Use the accent colour for section headings so they pop against the dark background */
-    color: var(--accent-color);
+    /* Section headings are darker for maximum contrast on light panels */
+    color: var(--primary-color);
     margin-bottom: 30px;
+    font-size: 2rem;
+    font-family: Georgia, 'Times New Roman', serif;
+    /* Drop shadow gives an elegant embossed effect */
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Experience items */
@@ -225,14 +256,16 @@ body {
 }
 .experience-item h3 {
     margin-bottom: 5px;
-    /* Headings in experience section use the accent colour for contrast */
+    /* Use accent colour and serif font for experience titles */
     color: var(--accent-color);
+    font-family: Georgia, 'Times New Roman', serif;
 }
 .experience-item h4 {
     margin-top: 0;
     font-weight: normal;
-    /* Lighten subheading text for better contrast on dark backgrounds */
-    color: #b2b2b2;
+    /* Muted grey subheading text for readability on light backgrounds */
+    color: #666666;
+    font-style: italic;
 }
 .experience-item ul {
     list-style: disc inside;
@@ -253,6 +286,7 @@ body {
     margin-bottom: 10px;
     /* Use accent colour for skill group titles to improve visibility */
     color: var(--accent-color);
+    font-family: Georgia, 'Times New Roman', serif;
 }
 .skill-group ul {
     list-style: square inside;
@@ -263,17 +297,25 @@ body {
     margin-bottom: 6px;
 }
 
+/* Apply a subtle shadow to body text within sections to enhance legibility on light backgrounds */
+.section p,
+.section li {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
 /* Project items */
 .project-item {
     margin-bottom: 30px;
-    background-color: var(--secondary-color);
+    background-color: var(--background-light);
     border-left: 4px solid var(--accent-color);
     padding: 15px 20px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 .project-item h3 {
     margin-top: 0;
     color: var(--accent-color);
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.3rem;
 }
 
 /* Dashboard section */
@@ -306,10 +348,10 @@ body {
     margin-top: 20px;
 }
 .prosacco-chart {
-    background-color: var(--secondary-color);
+    background-color: var(--background-light);
     padding: 15px;
     border-radius: 6px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     /* Constrain the height of each Prosacco chart container */
     height: 380px;
     display: flex;
@@ -321,12 +363,13 @@ body {
     font-size: 1.1rem;
     color: var(--accent-color);
     text-align: center;
+    font-family: Georgia, 'Times New Roman', serif;
 }
 .prosacco-note {
     margin-top: 20px;
     font-size: 0.9rem;
-    /* Lighten note text to stand out on the dark section */
-    color: #cccccc;
+    /* Muted grey note text for readability on light panels */
+    color: #666666;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
@@ -336,10 +379,10 @@ body {
 /* Prosacco resources section */
 .prosacco-resources {
     margin-top: 30px;
-    background-color: var(--secondary-color);
+    background-color: var(--background-light);
     padding: 15px 20px;
     border-radius: 6px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
@@ -377,7 +420,7 @@ body {
     margin-bottom: 10px;
 }
 .philosophy-list strong {
-    color: var(--secondary-color);
+    color: var(--accent-color);
 }
 
 /* Scroll progress bar styling */
